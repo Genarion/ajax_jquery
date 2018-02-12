@@ -12,6 +12,9 @@
     $request = $.ajax({
       url: $url.val(),
       method: 'GET',
+      beforeSend: function(xhr){
+        $states.append('<strong>' + STATES[xhr.readyState] + ':</strong> ' + xhr.readyState + ' <br/>');
+      },
       cache: false,
       dataType: 'html',
       xhrFields: {
